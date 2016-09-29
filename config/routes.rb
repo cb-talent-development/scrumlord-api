@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :standups do
+    resources :standup_team_members, path: 'team_members'
+  end
 
-
-  resources :standup_team_members
-  resources :standups
-  resources :groups
-  resources :team_members
+  resources :groups do
+    resources :team_members
+  end
 end
